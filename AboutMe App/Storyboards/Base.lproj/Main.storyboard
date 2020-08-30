@@ -124,7 +124,6 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="23"/>
                                 <state key="normal" title="Log Out"/>
                                 <connections>
-                                    <action selector="logOutButton" destination="FDI-k6-gwA" eventType="touchUpInside" id="hyp-No-4M8"/>
                                     <segue destination="983-kj-WA2" kind="unwind" unwindAction="unwindSegueWithSegue:" id="lMd-UH-GrU"/>
                                 </connections>
                             </button>
