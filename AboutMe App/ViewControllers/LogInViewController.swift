@@ -20,6 +20,11 @@ class LogInViewController: UIViewController {
         welcomeVC.welcomeText = "Welcome, \(userNameTextField.text!)!"
     }
     
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super .touchesBegan(touches, with: event)
+        self.view.endEditing(true)
+    }
+    
     
     @IBAction func logginIn() {
         let registeredUser = UserInfo()
@@ -30,42 +35,38 @@ class LogInViewController: UIViewController {
         if registeredUser.login == username && registeredUser.password == password  {
             performSegue(withIdentifier: "logInSegue", sender: nil)
         } else {
-            let alertController = UIAlertController(title: "Oooooops!😱",
-                                                    message: "Your login or password is wrong",
-                                                    preferredStyle: .alert)
-            
-            let action = UIAlertAction(title: "Try again", style: .default)
-            alertController.addAction(action)
-            self.present(alertController, animated: true)
-            
+            showAlert(title: "Oooooops!😱", message: "Your login or password is wrong")
+            passwordTextField.text = ""
         }
     }
-    
     
     @IBAction func remindButtons(_ sender: UIButton) {
         let registeredUser = UserInfo()
         if sender.title(for: .normal) == "Forgot UserName?" {
-            let alertController = UIAlertController(title: "Don't worry!😎",
-                                                    message: "Your login is \(registeredUser.login)",
-                                                    preferredStyle: .alert)
-            
-            let action = UIAlertAction(title: "Thanks!", style: .default)
-            alertController.addAction(action)
-            self.present(alertController, animated: true)
+            showAlert(title: "Don't Worry!😎", message: "Your login is \(registeredUser.login)")
         } else {
-            let alertController = UIAlertController(title: "It's OK🤗",
-                                                    message: "Your login is \(registeredUser.password)",
-                                                    preferredStyle: .alert)
-            
-            let action = UIAlertAction(title: "Thanks!", style: .default)
-            alertController.addAction(action)
-            self.present(alertController, animated: true)
+            showAlert(title: "It's OK🤗", message: "Your login is \(registeredUser.password)")
         }
     }
     
-
+    @IBAction func hideKeyboard(_ sender: UITapGestureRecognizer) {
+        touchesBegan(.init(), with: nil)
+    }
+    
     @IBAction func unwindSegue(segue: UIStoryboardSegue) {
         userNameTextField.text = ""
         passwordTextField.text = ""
+    }
+}
+    
+// MARK: - Alert Controller
+
+extension LogInViewController {
+    private func showAlert(title: String, message: String) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let action = UIAlertAction(title: "Thanks!", style: .default)
+        alert.addAction(action)
+        
+        present(alert, animated: true)
     }
 }
