@@ -13,22 +13,22 @@ class LogInViewController: UIViewController {
     @IBOutlet var userNameTextField: UITextField!
     @IBOutlet var passwordTextField: UITextField!
     
+    let registeredUser = UserInfo()
+    
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let tabBarController = segue.destination as! UITabBarController
         let welcomeVC = tabBarController.viewControllers?.first as! WelcomeViewController
-        welcomeVC.welcomeText = "Welcome, \(userNameTextField.text!)!"
+        welcomeVC.welcomeText = userNameTextField.text
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         super .touchesBegan(touches, with: event)
-        self.view.endEditing(true)
+        view.endEditing(true)
     }
     
     
     @IBAction func logginIn() {
-        let registeredUser = UserInfo()
-        
         guard let username = userNameTextField.text else { return }
         guard let password = passwordTextField.text else { return }
         
@@ -41,16 +41,11 @@ class LogInViewController: UIViewController {
     }
     
     @IBAction func remindButtons(_ sender: UIButton) {
-        let registeredUser = UserInfo()
         if sender.title(for: .normal) == "Forgot UserName?" {
             showAlert(title: "Don't Worry!😎", message: "Your login is \(registeredUser.login)")
         } else {
             showAlert(title: "It's OK🤗", message: "Your login is \(registeredUser.password)")
         }
-    }
-    
-    @IBAction func hideKeyboard(_ sender: UITapGestureRecognizer) {
-        touchesBegan(.init(), with: nil)
     }
     
     @IBAction func unwindSegue(segue: UIStoryboardSegue) {

@@ -1,5 +1,5 @@
 //
-//  LoginPasswordModel.swift
+//  UserInfo.swift
 //  AboutMe App
 //
 //  Created by Yaroslav on 29.08.2020.
