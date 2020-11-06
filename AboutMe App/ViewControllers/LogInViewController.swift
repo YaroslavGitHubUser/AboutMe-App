@@ -13,8 +13,19 @@ class LogInViewController: UIViewController {
     @IBOutlet var userNameTextField: UITextField!
     @IBOutlet var passwordTextField: UITextField!
     
-    let registeredUser = UserInfo()
+    var users = StorageManager.shared.fetchData()
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+//        StorageManager.shared.delete()
+        
+        for user in users {
+            print("Login: \(user.login ?? "N/A")")
+            print("Password: \(user.password ?? "N/A")")
+            print("=================")
+        }
+    }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let tabBarController = segue.destination as! UITabBarController
@@ -28,25 +39,25 @@ class LogInViewController: UIViewController {
     }
     
     
-    @IBAction func logginIn() {
-        guard let username = userNameTextField.text else { return }
+    @IBAction func LogInPressed() {
+        guard let userName = userNameTextField.text else { return }
         guard let password = passwordTextField.text else { return }
         
-        if registeredUser.login == username && registeredUser.password == password  {
-            performSegue(withIdentifier: "logInSegue", sender: nil)
-        } else {
-            showAlert(title: "Oooooops!😱", message: "Your login or password is wrong")
-            passwordTextField.text = ""
+        for user in users {
+            if userName == user.login && password == user.password {
+                performSegue(withIdentifier: "logInSegue", sender: nil)
+                return
+            }
         }
+        showWrongDataAlert(title: "Ooooops!😱",
+                           message: "Your credentials are wrong")
     }
     
-    @IBAction func remindButtons(_ sender: UIButton) {
-        if sender.title(for: .normal) == "Forgot UserName?" {
-            showAlert(title: "Don't Worry!😎", message: "Your login is \(registeredUser.login)")
-        } else {
-            showAlert(title: "It's OK🤗", message: "Your login is \(registeredUser.password)")
-        }
+    @IBAction func signUpPressed() {
+        showNewUserAlert(title: "Add New User",
+                  message: "Enter credentials of the new user")
     }
+    
     
     @IBAction func unwindSegue(segue: UIStoryboardSegue) {
         userNameTextField.text = ""
@@ -57,10 +68,44 @@ class LogInViewController: UIViewController {
 // MARK: - Alert Controller
 
 extension LogInViewController {
-    private func showAlert(title: String, message: String) {
+    private func showNewUserAlert(title: String, message: String) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        let action = UIAlertAction(title: "Thanks!", style: .default)
-        alert.addAction(action)
+                
+        alert.addTextField { textField in
+            textField.placeholder = "Enter your username"
+        }
+        
+        alert.addTextField { textField in
+            textField.placeholder = "Enter your password"
+        }
+        
+        let signUpAction = UIAlertAction(title: "Sign Up", style: .default) { _ in
+            let login = alert.textFields?.first?.text
+            let password = alert.textFields?.last?.text
+            if let login = login, let password = password {
+                if login.isEmpty && password.isEmpty {
+                    print("Login/password is empty")
+                } else {
+                StorageManager.shared.save(login: login,
+                                           password: password)
+                self.users = StorageManager.shared.fetchData()
+                }
+            }
+        }
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .destructive)
+        
+        alert.addAction(signUpAction)
+        alert.addAction(cancelAction)
+        
+        present(alert, animated: true)
+    }
+    
+    private func showWrongDataAlert(title: String, message: String) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let cancelAction = UIAlertAction(title: "Cancel", style: .destructive)
+        
+        alert.addAction(cancelAction)
         
         present(alert, animated: true)
     }

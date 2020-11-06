@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.3" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
@@ -35,53 +35,46 @@
                                     <constraint firstAttribute="height" constant="85" id="07H-6Q-OUp"/>
                                 </constraints>
                             </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Qk-8F-Hhr">
-                                <rect key="frame" x="134" y="295" width="52" height="35"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
-                                <state key="normal" title="Log In">
-                                    <color key="titleColor" systemColor="systemIndigoColor" red="0.34509803919999998" green="0.33725490200000002" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="logginIn" destination="BYZ-38-t0r" eventType="touchUpInside" id="3fm-7K-iJM"/>
-                                </connections>
-                            </button>
-                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="19" translatesAutoresizingMaskIntoConstraints="NO" id="nC3-7G-pHH" userLabel="Forgot StackView">
-                                <rect key="frame" x="30" y="347" width="260" height="28"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="129" translatesAutoresizingMaskIntoConstraints="NO" id="Fny-cR-G9I" userLabel="Log In &amp; Sign Up StackView">
+                                <rect key="frame" x="30" y="306" width="260" height="35"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pfc-qD-FXo">
-                                        <rect key="frame" x="0.0" y="0.0" width="120.5" height="28"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                        <state key="normal" title="Forgot UserName?">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Qk-8F-Hhr">
+                                        <rect key="frame" x="0.0" y="0.0" width="63" height="35"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                        <state key="normal" title="Log In">
                                             <color key="titleColor" systemColor="systemIndigoColor" red="0.34509803919999998" green="0.33725490200000002" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                         <connections>
-                                            <action selector="remindButtons:" destination="BYZ-38-t0r" eventType="touchUpInside" id="rw8-ld-S2J"/>
+                                            <action selector="LogInPressed" destination="BYZ-38-t0r" eventType="touchUpInside" id="egh-az-c61"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="09t-Bk-ixb">
-                                        <rect key="frame" x="139.5" y="0.0" width="120.5" height="28"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                        <state key="normal" title="Forgot Password?">
-                                            <color key="titleColor" systemColor="systemIndigoColor" red="0.34509803919999998" green="0.33725490200000002" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Udc-Py-csG">
+                                        <rect key="frame" x="192" y="0.0" width="68" height="35"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                        <state key="normal" title="Sign Up">
+                                            <color key="titleColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                         <connections>
-                                            <action selector="remindButtons:" destination="BYZ-38-t0r" eventType="touchUpInside" id="LhJ-d0-t3A"/>
+                                            <action selector="signUpPressed" destination="BYZ-38-t0r" eventType="touchUpInside" id="szS-1f-sU8"/>
                                         </connections>
                                     </button>
                                 </subviews>
+                                <constraints>
+                                    <constraint firstItem="3Qk-8F-Hhr" firstAttribute="width" secondItem="Udc-Py-csG" secondAttribute="width" multiplier="0.926471" id="m7M-wa-XgC"/>
+                                    <constraint firstAttribute="height" constant="35" id="tin-li-UCt"/>
+                                </constraints>
                             </stackView>
                         </subviews>
                         <color key="backgroundColor" red="0.83741801979999997" green="0.83743780850000005" blue="0.83742713930000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <gestureRecognizers/>
                         <constraints>
-                            <constraint firstItem="3Qk-8F-Hhr" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="7qW-h8-PfJ"/>
+                            <constraint firstItem="Fny-cR-G9I" firstAttribute="top" secondItem="IDI-fB-Ihb" secondAttribute="bottom" constant="35" id="MTD-tB-T7L"/>
                             <constraint firstItem="IDI-fB-Ihb" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="186" id="QwT-Jf-YG5"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="nC3-7G-pHH" secondAttribute="trailing" constant="30" id="Stx-C1-oIC"/>
                             <constraint firstItem="IDI-fB-Ihb" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="30" id="VBz-mo-43r"/>
-                            <constraint firstItem="nC3-7G-pHH" firstAttribute="top" secondItem="3Qk-8F-Hhr" secondAttribute="bottom" constant="17" id="XxQ-Xn-DQ5"/>
+                            <constraint firstItem="Fny-cR-G9I" firstAttribute="trailing" secondItem="IDI-fB-Ihb" secondAttribute="trailing" id="boh-Kl-c5r"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="IDI-fB-Ihb" secondAttribute="trailing" constant="30" id="ghO-Rk-XZm"/>
-                            <constraint firstItem="nC3-7G-pHH" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="30" id="ors-Aq-6Yz"/>
-                            <constraint firstItem="3Qk-8F-Hhr" firstAttribute="top" secondItem="IDI-fB-Ihb" secondAttribute="bottom" constant="24" id="x6v-d0-OMf"/>
+                            <constraint firstItem="Fny-cR-G9I" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="lp0-EG-mlb"/>
+                            <constraint firstItem="Fny-cR-G9I" firstAttribute="leading" secondItem="IDI-fB-Ihb" secondAttribute="leading" id="rj0-J2-tQd"/>
                             <constraint firstItem="IDI-fB-Ihb" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="ylV-mF-BhY"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -94,7 +87,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-141" y="110"/>
+            <point key="canvasLocation" x="-142.5" y="109.85915492957747"/>
         </scene>
         <!--Welcome View Controller-->
         <scene sceneID="Y3H-fJ-4aX">
@@ -175,39 +168,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="cxV-md-H7k" userLabel="AboutMe Stack View">
-                                <rect key="frame" x="20" y="111" width="280" height="354"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="👨🏼‍⚖️ I am a lawyer from Ukraine interested in programming" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s46-C2-jq1" userLabel="👨🏼‍⚖️">
-                                        <rect key="frame" x="0.0" y="0.0" width="280" height="54"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="22"/>
-                                        <color key="textColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <nil key="highlightedColor"/>
-                                        <color key="shadowColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="🎂 As you may see from the password, I was born on 18 September 1994" lineBreakMode="clip" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lgG-za-sF2" userLabel="🎂">
-                                        <rect key="frame" x="0.0" y="74" width="268.5" height="80"/>
-                                        <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="22"/>
-                                        <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <nil key="highlightedColor"/>
-                                        <color key="shadowColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="👨🏼‍💻Trying to prove myself that I am not too stupid for programming" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EDx-Ud-ts9" userLabel="👨🏼‍💻">
-                                        <rect key="frame" x="0.0" y="174" width="280" height="80"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="22"/>
-                                        <color key="textColor" red="0.37055522200000002" green="0.37056469920000001" blue="0.37055957319999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <nil key="highlightedColor"/>
-                                        <color key="shadowColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="⚽️ I like playing football - the only thing which can wake me up at 7 am on Saturday " lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wBc-WN-So9" userLabel="⚽️">
-                                        <rect key="frame" x="0.0" y="274" width="278" height="80"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="22"/>
-                                        <color key="textColor" red="0.58105844259999995" green="0.12855249639999999" blue="0.57453137639999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <nil key="highlightedColor"/>
-                                        <color key="shadowColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
-                                    </label>
-                                </subviews>
-                            </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O3k-Xf-xbh">
                                 <rect key="frame" x="200" y="468" width="100" height="36"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
@@ -223,11 +183,8 @@
                         <color key="backgroundColor" red="0.45138680930000002" green="0.99309605359999997" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="kek-hn-9Xx" firstAttribute="trailing" secondItem="O3k-Xf-xbh" secondAttribute="trailing" constant="20" id="68D-Hb-qn4"/>
-                            <constraint firstAttribute="trailing" secondItem="cxV-md-H7k" secondAttribute="trailing" constant="20" id="BIo-bi-qLZ"/>
                             <constraint firstItem="O3k-Xf-xbh" firstAttribute="leading" secondItem="kek-hn-9Xx" secondAttribute="leading" constant="200" id="m68-z3-g1j"/>
                             <constraint firstItem="kek-hn-9Xx" firstAttribute="bottom" secondItem="O3k-Xf-xbh" secondAttribute="bottom" constant="15" id="n6Z-Ct-PgQ"/>
-                            <constraint firstItem="cxV-md-H7k" firstAttribute="leading" secondItem="kek-hn-9Xx" secondAttribute="leading" constant="20" id="rV2-4K-iLR"/>
-                            <constraint firstItem="cxV-md-H7k" firstAttribute="top" secondItem="kek-hn-9Xx" secondAttribute="top" constant="20" id="zba-7Y-woq"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="kek-hn-9Xx"/>
                     </view>
@@ -239,32 +196,17 @@
             </objects>
             <point key="canvasLocation" x="1706" y="901"/>
         </scene>
-        <!--Anniversary-->
+        <!--Facts-->
         <scene sceneID="50f-aP-YZ1">
             <objects>
                 <viewController id="F0k-BP-c9D" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="7tW-MI-OxC">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sSV-Od-DTz" userLabel="Anniversary">
-                                <rect key="frame" x="20" y="180" width="280" height="159"/>
-                                <string key="text">Today, on 30 August 2020, I have the first anniversary of wedding, and if I spend another 20 min in front of my computer, my wife will kill me🤣</string>
-                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
-                                <color key="textColor" red="0.0" green="0.56284224989999998" blue="0.31881666180000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="highlightedColor"/>
-                                <color key="shadowColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            </label>
-                        </subviews>
                         <color key="backgroundColor" red="0.83741801979999997" green="0.83743780850000005" blue="0.83742713930000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <constraints>
-                            <constraint firstItem="edN-1h-oCA" firstAttribute="trailing" secondItem="sSV-Od-DTz" secondAttribute="trailing" constant="20" id="0gq-eo-oFL"/>
-                            <constraint firstItem="sSV-Od-DTz" firstAttribute="leading" secondItem="edN-1h-oCA" secondAttribute="leading" constant="20" id="5V1-po-MlB"/>
-                            <constraint firstItem="sSV-Od-DTz" firstAttribute="centerY" secondItem="7tW-MI-OxC" secondAttribute="centerY" id="uDU-o6-RWk"/>
-                        </constraints>
                         <viewLayoutGuide key="safeArea" id="edN-1h-oCA"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Anniversary" largeTitleDisplayMode="never" id="0rh-qf-sqi"/>
+                    <navigationItem key="navigationItem" title="Facts" largeTitleDisplayMode="never" id="0rh-qf-sqi"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eZB-gZ-KAy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
